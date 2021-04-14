@@ -1,20 +1,13 @@
-package com.assignment.HRMserver.model;
+package com.assignment.hrm.server.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "user")
-public class HRModel {
-    @Id
+public class HRDto {
     private String userId;
     private String password;
 
-    public HRModel() {
+    public HRDto() {
     }
 
-    public HRModel(String userId, String password) {
+    public HRDto(String userId, String password) {
         this.userId = userId;
         this.password = password;
     }

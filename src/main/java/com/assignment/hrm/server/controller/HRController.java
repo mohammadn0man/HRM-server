@@ -1,7 +1,8 @@
-package com.assignment.HRMserver.controller;
+package com.assignment.hrm.server.controller;
 
-import com.assignment.HRMserver.model.HRModel;
-import com.assignment.HRMserver.repository.HRRepository;
+import com.assignment.hrm.server.dto.HRDto;
+import com.assignment.hrm.server.model.HRModel;
+import com.assignment.hrm.server.repository.HRRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +27,11 @@ public class HRController {
     }
 
     @PostMapping("addhr")
-    public HRModel createHR(@RequestBody HRModel hrModel) {
+    public HRModel createHR(@RequestBody HRDto hrDto) {
+        HRModel hrModel = new HRModel(
+                hrDto.getUserId(),
+                hrDto.getPassword()
+        );
         return repository.save(hrModel);
     }
 
@@ -38,7 +43,12 @@ public class HRController {
     }
 
     @PutMapping("edithr/{id}")
-    public ResponseEntity<Object> updateStudent(@RequestBody HRModel model, @PathVariable String id) {
+    public ResponseEntity<Object> updateStudent(@RequestBody HRDto hrDto, @PathVariable String id) {
+
+        HRModel model = new HRModel(
+                hrDto.getUserId(),
+                hrDto.getPassword()
+        );
 
         Optional<HRModel> hrModel = repository.findById(id);
 

@@ -1,7 +1,8 @@
-package com.assignment.HRMserver.controller;
+package com.assignment.hrm.server.controller;
 
-import com.assignment.HRMserver.model.EmployeeModel;
-import com.assignment.HRMserver.repository.EmployeeRepository;
+import com.assignment.hrm.server.dto.EmployeeDto;
+import com.assignment.hrm.server.model.EmployeeModel;
+import com.assignment.hrm.server.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +27,14 @@ public class EmployeeController {
     }
 
     @PostMapping("addemployee")
-    public EmployeeModel createEmployee(@RequestBody EmployeeModel employeeModel) {
+    public EmployeeModel createEmployee(@RequestBody EmployeeDto employeeDto) {
+        EmployeeModel employeeModel = new EmployeeModel(
+                employeeDto.getEmployeeCode(),
+                employeeDto.getEmployeeName(),
+                employeeDto.getLocation(),
+                employeeDto.getEmail(),
+                employeeDto.getDateOfBirth()
+        );
         return repository.save(employeeModel);
     }
 
@@ -38,8 +46,15 @@ public class EmployeeController {
     }
 
     @PutMapping("editemployee/{id}")
-    public ResponseEntity<Object> updateEmployee(@RequestBody EmployeeModel model, @PathVariable Long id) {
+    public ResponseEntity<Object> updateEmployee(@RequestBody EmployeeDto employeeDto, @PathVariable Long id) {
 
+        EmployeeModel model = new EmployeeModel(
+                employeeDto.getEmployeeCode(),
+                employeeDto.getEmployeeName(),
+                employeeDto.getLocation(),
+                employeeDto.getEmail(),
+                employeeDto.getDateOfBirth()
+        );
         Optional<EmployeeModel> hrModel = repository.findById(id);
 
         if (!hrModel.isPresent()) {

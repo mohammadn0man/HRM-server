@@ -1,4 +1,4 @@
-package com.assignment.HRMserver;
+package com.assignment.hrm.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

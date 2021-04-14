@@ -1,4 +1,4 @@
-package com.assignment.HRMserver.model;
+package com.assignment.hrm.server.model;
 
 import javax.persistence.*;
 
