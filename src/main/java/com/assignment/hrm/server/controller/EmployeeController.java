@@ -68,4 +68,29 @@ public class EmployeeController {
         return ResponseEntity.noContent().build();
     }
 
+    @PostMapping("/editemp")
+    public EmployeeModel updateEmp(@RequestBody EmployeeDto employeeDto) {
+
+        System.out.println(employeeDto);
+
+        EmployeeModel model = new EmployeeModel(
+                employeeDto.getEmployeeCode(),
+                employeeDto.getEmployeeName(),
+                employeeDto.getLocation(),
+                employeeDto.getEmail(),
+                employeeDto.getDateOfBirth()
+        );
+        Optional<EmployeeModel> hrModel = repository.findById(employeeDto.getEmployeeCode());
+
+        if (!hrModel.isPresent()) {
+            return new EmployeeModel();
+        }
+
+        model.setEmployeeCode(employeeDto.getEmployeeCode());
+
+        repository.save(model);
+
+        return model;
+    }
+
 }

@@ -57,4 +57,15 @@ public class EmployeeDto {
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+
+    @Override
+    public String toString() {
+        return "EmployeeDto{" +
+                "employeeCode=" + employeeCode +
+                ", employeeName='" + employeeName + '\'' +
+                ", location='" + location + '\'' +
+                ", email='" + email + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
+                '}';
+    }
 }
