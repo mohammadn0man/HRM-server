@@ -10,6 +10,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * HRController
+ * methods mapped with url paths
+ * <p>hr : returns the list if all the HRs</p>
+ * <p>validatehr : returns true if cred match with db</p>
+ * <p>hr/id : returns HR with given id else null</p>
+ * <p>addhr : add new HR with new id</p>
+ * <p>deletehr : remove HR with given id if exist</p>
+ * <p>edithr : update HR with given id if exist</p>
+ */
+
 @RestController
 public class HRController {
 

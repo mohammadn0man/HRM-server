@@ -10,6 +10,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * EmployeeController
+ * methods mapped with url paths
+ * <p>employees : returns the list if all the employees</p>
+ * <p>employees/id : returns employee with given id else null</p>
+ * <p>addemployee : add new employee with new id</p>
+ * <p>deleteemployee : remove employee with given id if exist</p>
+ * <p>editemployee/editemp : update employee with given id if exist</p>
+ */
+
 @RestController
 public class EmployeeController {
 
