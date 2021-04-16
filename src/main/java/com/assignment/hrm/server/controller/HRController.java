@@ -35,6 +35,12 @@ public class HRController {
         return repository.save(hrModel);
     }
 
+    @PostMapping("validatehr")
+    public boolean validatehr(@RequestBody HRDto model) {
+        Optional<HRModel> resModel = repository.findById(model.getUserId());
+        return resModel.map(hrModel -> hrModel.getPassword().equals(model.getPassword())).orElse(false);
+    }
+
     @DeleteMapping("removehr/{id}")
     public Optional<HRModel> removeHR(@PathVariable String id) {
         Optional<HRModel> model = repository.findById(id);
