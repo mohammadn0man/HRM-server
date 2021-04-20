@@ -29,7 +29,7 @@ public class HRController {
 
     @GetMapping("hr")
     public List<HRModel> getAll() {
-        return (List<HRModel>) repository.indAll();
+        return (List<HRModel>) repository.findAll();
     }
 
     @GetMapping("hr/{id}")
