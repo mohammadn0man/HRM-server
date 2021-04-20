@@ -7,14 +7,14 @@ import javax.persistence.*;
 public class EmployeeModel {
     @Id
     @TableGenerator(name = "Emp_Gen",
-                    table = "ID_GEN",
-                    pkColumnName = "GEN_NAME",
-                    valueColumnName = "GEN_VAL",
-                    pkColumnValue = "Emp_Gen",
-                    initialValue = 10000,
-                    allocationSize = 100)
+            table = "ID_GEN",
+            pkColumnName = "GEN_NAME",
+            valueColumnName = "GEN_VAL",
+            pkColumnValue = "Emp_Gen",
+            initialValue = 10000,
+            allocationSize = 100)
     @GeneratedValue(strategy = GenerationType.TABLE,
-                    generator = "Emp_Gen")
+            generator = "Emp_Gen")
     private Long employeeCode;
     private String employeeName;
     private String location;
