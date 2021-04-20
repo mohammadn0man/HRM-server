@@ -1,9 +1,5 @@
 pipeline {
     agent any
-    environment {
-        PATH = "C:/apache-maven-3.8.1/bin:$PATH"
-        JAVA_HOME = "C:/Program Files/Java/jdk1.8.0_221"
-    }
     stages {
         stage("build code"){
             steps{
